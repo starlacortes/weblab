@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebLab — HTML/CSS/JS Playground</title>
+<link rel="stylesheet" href="vendor/codemirror.css">
+<link rel="stylesheet" href="vendor/material-darker.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🧪 <span>WebLab</span></div>
+  <input id="project-name" title="Project name (used for the ZIP file)" spellcheck="false" autocomplete="off">
+  <span id="save-status" class="save-status" aria-live="polite">Saved ✓</span>
+  <div class="spacer"></div>
+  <button id="reset-btn" class="btn ghost" title="Start a fresh empty project">Start fresh</button>
+  <button id="download-btn" class="btn primary" title="Download your project as a ZIP">⬇ Download ZIP</button>
+</header>
+
+<main class="workbench" id="workbench">
+  <section class="pane pane-left" id="pane-left" aria-label="Code editor">
+    <div class="tabbar" id="editor-tabs" role="tablist"></div>
+    <div class="editor-wrap" id="editor-wrap">
+      <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+    </div>
+  </section>
+
+  <div class="divider" id="divider" title="Drag to resize"></div>
+
+  <section class="pane pane-right" id="pane-right" aria-label="Preview and AI tutor">
+    <div class="tabbar right" id="view-tabs" role="tablist"></div>
+
+    <div class="view view-preview active" id="view-preview">
+      <iframe id="preview-frame" title="Live preview of your page"
+              sandbox="allow-scripts allow-modals allow-forms allow-popups"></iframe>
+      <div class="error-bar hidden" id="error-bar" role="alert">
+        <span id="error-text"></span>
+        <button id="error-close" title="Dismiss">✕</button>
+      </div>
+    </div>
+
+    <div class="view view-chat" id="view-chat">
+      <div class="chat-banner hidden" id="chat-banner">⚙️ The AI tutor isn't configured on this server yet — ask your teacher to set the <code>GREENPT_API_KEY</code> variable.</div>
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <form class="chat-input" id="chat-form">
+        <textarea id="chat-text" rows="1" placeholder="Ask your AI tutor anything about your code… (Enter to send)" required></textarea>
+        <button class="btn primary" id="chat-send" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="toast hidden" id="toast" role="status"></div>
+
+<script src="vendor/codemirror.js"></script>
+<script src="vendor/xml.js"></script>
+<script src="vendor/javascript.js"></script>
+<script src="vendor/css.js"></script>
+<script src="vendor/htmlmixed.js"></script>
+<script src="/vendor/jszip.min.js"></script>
+<script src="compose.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

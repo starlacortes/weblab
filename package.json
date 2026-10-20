@@ -1,0 +1,20 @@
+{
+  "name": "weblab",
+  "version": "1.0.0",
+  "description": "Classroom live HTML/CSS/JS playground with AI tutor and ZIP export",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/compose.test.js"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "jszip": "^3.10.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
